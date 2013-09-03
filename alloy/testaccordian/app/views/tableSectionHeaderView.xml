@@ -1,0 +1,11 @@
+<Alloy>
+	<TableViewSection id="section">
+		<HeaderView>
+			<View height="32" backgroundColor="#bfd9e4" borderColor = "#FFF" onClick="toggleSection" id="view">
+				<Label id="label">
+					
+				</Label>
+			</View>
+		</HeaderView>
+	</TableViewSection>
+</Alloy>

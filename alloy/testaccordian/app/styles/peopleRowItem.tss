@@ -1,0 +1,8 @@
+"TableViewRow": {
+	color: "#808080",
+	font: {
+		fontSize: "16"
+	},
+	backgroundColor: "#eef5f8",
+	
+}

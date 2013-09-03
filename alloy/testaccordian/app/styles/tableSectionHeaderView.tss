@@ -1,0 +1,11 @@
+"Label" : {
+	top: "8",
+	bottom: "6",
+	left: "10",
+	right: "10",
+	font: {
+		fontSize: "16",
+		fontWeight: 'bold'
+	},
+	color: '#808080'
+}
