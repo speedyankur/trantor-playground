@@ -1,0 +1,7 @@
+<Alloy>
+	<Tab title="New Issue" icon="KS_nav_ui.png">
+		<Window title="New Issue *">
+			<Label>Here will be Issue Form</Label>
+		</Window>
+	</Tab>
+</Alloy>

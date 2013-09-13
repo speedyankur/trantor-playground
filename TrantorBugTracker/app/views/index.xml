@@ -1,0 +1,8 @@
+<Alloy>
+	<TabGroup>
+		<Require src="issuesTab" id="allIssuesTab"/>
+		<Require src="issueReporterTab" id="issueReporterTab"/>		
+		<Require src="settingsTab" id="issueReporterTab"/>		
+
+	</TabGroup>
+</Alloy>
