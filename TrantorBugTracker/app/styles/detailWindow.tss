@@ -1,0 +1,26 @@
+"Window":{
+	backgroundImage: 'images/ios_bg.jpg',
+	backgroundRepeat: true
+}
+"View":{
+	top: 10,
+	height: 75
+},
+"Label":{
+	color: "#000"
+}
+".label":{
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	},
+	left: 10,
+	width: 100
+},
+".value":{
+	font: {
+		fontSize: 16
+	},
+	left: 125,
+	right: 10
+}
