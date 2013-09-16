@@ -1,3 +1,58 @@
-"Window" : {
-  backgroundColor:"#fff"
+"Window":{
+	backgroundImage: 'images/ios_bg.jpg',
+	backgroundRepeat: true
 }
+
+".label":{
+	color: "#000",
+	top: 10,
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	},
+	left: 10,
+	right: 10
+},
+"TextField":{
+	top: 5,
+	clearButtonMode: Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
+	left: 10,
+	right: 10,
+	color: '#000',
+	borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+},
+"TextArea":{
+	top: 10,
+	left: 10,
+	right: 10,
+	height: 64,
+	color: '#000',
+	borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+},
+"Picker [platform=android]":{
+	top: 5,
+	left: 10,
+	right: 10
+},
+"#dateResolved [platform=android]":{
+	softKeyboardOnFocus: "Titanium.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS"
+},
+"#dateIdentified [platform=android]":{
+	softKeyboardOnFocus: "Titanium.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS"
+}
+"#next":{
+	color: '#fff',
+	font: {
+		fontSize: '15',
+		fontWeight: 'bold'
+	},
+	borderRadius: "5",
+	backgroundImage: "none",
+	backgroundSelectedImage: "none",
+	height: "40",
+	left: '25',
+	right: '25'
+}
+
+
+
