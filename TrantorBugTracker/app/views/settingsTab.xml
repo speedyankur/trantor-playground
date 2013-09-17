@@ -1,5 +1,5 @@
 <Alloy>
-	<Tab title="Settings" icon="KS_nav_ui.png">
+	<Tab title=" Settings" icon="/images/list_issuesetting.png">
 		<Window title="Settings">
 			<Label>Here will be all the settings</Label>
 		</Window>

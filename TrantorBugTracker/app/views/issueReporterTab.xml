@@ -1,5 +1,5 @@
 <Alloy>
-	<Tab title="New Issue" icon="KS_nav_ui.png">
+	<Tab title=" New Issue" icon="/images/list_issueAdd.png">
 		<Window title="New Issue *" >
 			<View id="pickerView" height="250" bottom="-250" zIndex="10" backgroundColor="#fff" width="100%" layout="vertical">
 				<View bottom="0" height='50' backgroundColor='#778899'>

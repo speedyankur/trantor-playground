@@ -1,5 +1,5 @@
 <Alloy>
-	<Tab title="Issues" icon="KS_nav_ui.png" id="issuesTab">
+	<Tab title=" Issues" icon="/images/list_issue.png" id="issuesTab">
 
         <Window title="All Issues"> 
             <TableView id="tableView"></TableView>
