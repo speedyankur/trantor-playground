@@ -34,3 +34,9 @@ $.tableView.addEventListener('click', function(e) {
 		animated : true
 	});
 });
+
+//runtime unit tests
+if (!ENV_PROD) {
+	require('specs/issuesTab')($);
+}
+
