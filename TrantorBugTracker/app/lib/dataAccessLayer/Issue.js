@@ -9,8 +9,6 @@ exports.getAllIssues = function(callback) {
 				},
 				onload : function(e) {
 					var responseData = JSON.parse(this.responseText);
-					Ti.API.info("This is new responseText :"
-							+ responseData.results.length + "------");
 					callback(responseData);
 					Alloy.Globals.progressBar.closeIndicator();
 

@@ -1,7 +1,7 @@
 <Alloy>
 	<Tab title=" Issues" icon="/images/list_issue.png" id="issuesTab">
 
-        <Window title="All Issues"> 
+        <Window title="All Issues" id="issuesWindow"> 
             <TableView id="tableView"></TableView>
         </Window>
 

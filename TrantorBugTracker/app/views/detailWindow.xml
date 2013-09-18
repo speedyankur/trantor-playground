@@ -1,5 +1,5 @@
 <Alloy>
-	<Window title="Detail View" id="detailWindow" onOpen="onOpen">
+	<Window title="Detail View" id="detailWindow">
 		<ScrollView layout="vertical" bottom="10">
 			<View class="field">
 				<Label class="label">Project:</Label>
