@@ -1,10 +1,15 @@
 "Window":{
-	backgroundImage: 'images/ios_bg.jpg',
+	backgroundColor: '#fff',
 	backgroundRepeat: true
+},
+".borderBottom":{
+	height: "1",
+	backgroundColor:"#808080",
+	top: 5
 }
-"View":{
-	top: 10,
-	height: 75
+".field":{
+	top: 5,
+	height: Ti.UI.SIZE
 },
 "Label":{
 	color: "#000"

@@ -1,15 +1,16 @@
-function onOpen() {
-	if (OS_ANDROID) {
-		var activity = $.detailWindow.activity;
+var args = arguments[0] || {};
+$.projectNameField.text = args.project;
 
-		if (Alloy.Globals.Android.Api >= 11) {
-			activity.actionBar.title = "Detail view";
-			//activity.actionBar.displayHomeAsUp = true;
-			activity.actionBar.onHomeIconItemSelected = function() {
-				Ti.API.info("back Clicked");
-				$.detailWindow.close();
-			};
-		}
-	}
+$.issueDescriptionField.text = args.Description;
 
-}
+$.dateIdentifiedField.text = args.dateIdentified ? (new Date(args.dateIdentified.iso)).toDateString() : "";
+
+$.dateResolvedField.text = args.dateResolved ? (new Date(args.dateResolved.iso)).toDateString() : "";
+
+$.statusField.text = args.status;
+
+$.severityField.text = args.severity;
+
+$.mitigationField.text = args.mitigationPlan;
+
+$.commentsField.text = args.comments;
