@@ -2,9 +2,19 @@
 	<Tab title=" New Issue" icon="/images/list_issueAdd.png">
 		<Window title="New Issue *" >
 			<View id="pickerView" height="250" bottom="-250" zIndex="10" backgroundColor="#fff" width="100%" layout="vertical">
-				<View bottom="0" height='50' backgroundColor='#778899'>
-					<Button  title='Done' height='40' right='10' width='120' onClick="hidePickerView"></Button>
-				</View>
+				<Toolbar platform="ios" bottom="0" borderTop="true" borderBottom="false">
+
+					<!-- The Items tag sets the Toolbar.items property. -->
+					<Items>
+						<Button id="cancel" systemButton="Ti.UI.iPhone.SystemButton.CANCEL" />
+						<FlexSpace/>
+						<Button onClick="hidePickerView" systemButton="Ti.UI.iPhone.SystemButton.DONE" />
+					</Items>
+
+					<!-- Place additional views for the Toolbar here. -->
+
+				</Toolbar>
+
 				<Picker id="picker" useSpinner="true" selectionIndicator="true" type="Ti.UI.PICKER_TYPE_DATE"></Picker>
 			</View>
 			<ScrollView layout="vertical">
@@ -13,13 +23,10 @@
 				<TextField hintText="Project Name"></TextField>
 				<Label class="label">Description:</Label>
 				<TextField hintText="Project Description"></TextField>
-				
 				<Label class="label">Date Identified:</Label>
 				<TextField id="dateIdentified" name="DATE_IDENTIFIED" onFocus="showPickerView"  hintText="Identified Date"  ></TextField>
-				
 				<Label class="label">Date resolved:</Label>
 				<TextField id="dateResolved" name="DATE_RESOLVED" onFocus="showPickerView"  hintText="Resolved Date"  ></TextField>
-				
 				<Label class="label">Status:</Label>
 				<TextField hintText="Status"></TextField>
 				<Label class="label">Severity:</Label>
@@ -28,7 +35,6 @@
 				<TextArea></TextArea>
 				<Label class="label">Comments:</Label>
 				<TextArea></TextArea>
-				
 				<Button top="15"  id="next" backgroundColor="#30D1F4" backgroundSelectedColor="#808080" title="Save"  ></Button>
 
 			</ScrollView>
