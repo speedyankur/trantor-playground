@@ -20,22 +20,22 @@
 			<ScrollView layout="vertical">
 
 				<Label class="label">Project:</Label>
-				<TextField hintText="Project Name"></TextField>
+				<TextField hintText="Project Name" id="projectField"></TextField>
 				<Label class="label">Description:</Label>
-				<TextField hintText="Project Description"></TextField>
+				<TextField hintText="Project Description" id="descriptionField"></TextField>
 				<Label class="label">Date Identified:</Label>
-				<TextField id="dateIdentified" name="DATE_IDENTIFIED" onFocus="showPickerView"  hintText="Identified Date"  ></TextField>
+				<TextField id="dateIdentified" name="DATE_IDENTIFIED"  onFocus="showPickerView"  hintText="Identified Date"  ></TextField>
 				<Label class="label">Date resolved:</Label>
 				<TextField id="dateResolved" name="DATE_RESOLVED" onFocus="showPickerView"  hintText="Resolved Date"  ></TextField>
 				<Label class="label">Status:</Label>
-				<TextField hintText="Status"></TextField>
+				<TextField hintText="Status" id="statusField"></TextField>
 				<Label class="label">Severity:</Label>
-				<TextField hintText="Severity"></TextField>
+				<TextField hintText="Severity" id="severityField"></TextField>
 				<Label class="label">Mitigation Plan:</Label>
-				<TextArea></TextArea>
+				<TextArea id="mitigationField"></TextArea>
 				<Label class="label">Comments:</Label>
-				<TextArea></TextArea>
-				<Button top="15"  id="next" backgroundColor="#30D1F4" backgroundSelectedColor="#808080" title="Save"  ></Button>
+				<TextArea id="commentsField"></TextArea>
+				<Button top="15"  id="next" onClick="submit" backgroundColor="#30D1F4" backgroundSelectedColor="#808080" title="Save"  ></Button>
 
 			</ScrollView>
 
