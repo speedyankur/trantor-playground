@@ -13,6 +13,29 @@ function refreshIssues() {
 	Alloy.Globals.dataAccesslayer.getAllIssues(function(response) {
 		if (response) {
 			if (response.results.length > 0) {
+				Ti.API.info("before sorting--"+JSON.stringify(response.results));
+				var sorter=Ti.App.Properties.getString('filter') ? Ti.App.Properties.getString('filter') : "";
+				switch(sorter){
+					case "PROJECT":
+						response.results = _.sortBy(response.results,function(issue){
+							return issue.project;
+						})
+						break;
+					case "DESCRIPTION":
+						response.results = _.sortBy(response.results,function(issue){
+							return issue.Description;
+						})
+						break;
+						
+					case "DATE-IDENTIFIED":
+						response.results = _.sortBy(response.results,function(issue){
+							
+							return issue.dateIdentified ? new Date(issue.dateIdentified.iso) : "";
+						})
+						break;										
+				}
+				Ti.API.info("after sorting--"+JSON.stringify(response.results));
+				
 				for ( var i = 0; i < response.results.length; i++) {
 					var args = {};
 					args.title = response.results[i].Description;
