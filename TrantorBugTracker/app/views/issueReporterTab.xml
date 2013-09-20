@@ -14,7 +14,6 @@
 					<!-- Place additional views for the Toolbar here. -->
 
 				</Toolbar>
-
 				<Picker id="picker" useSpinner="true" selectionIndicator="true" type="Ti.UI.PICKER_TYPE_DATE"></Picker>
 			</View>
 			<ScrollView layout="vertical">
@@ -24,13 +23,13 @@
 				<Label class="label">Description:</Label>
 				<TextField hintText="Project Description" id="descriptionField"></TextField>
 				<Label class="label">Date Identified:</Label>
-				<TextField id="dateIdentified" name="DATE_IDENTIFIED"  onFocus="showPickerView"  hintText="Identified Date"  ></TextField>
+				<Label class="labelLikeTextField" id="dateIdentified" name="DATE_IDENTIFIED" onClick="showPickerView"></Label>
 				<Label class="label">Date resolved:</Label>
-				<TextField id="dateResolved" name="DATE_RESOLVED" onFocus="showPickerView"  hintText="Resolved Date"  ></TextField>
+				<Label class="labelLikeTextField" id="dateResolved" name="DATE_RESOLVED" onClick="showPickerView"></Label>
 				<Label class="label">Status:</Label>
-				<TextField hintText="Status" id="statusField"></TextField>
+				<Label class="labelLikeTextField" id="statusField"  onClick="showStatusPickerDialog"></Label>
 				<Label class="label">Severity:</Label>
-				<TextField hintText="Severity" id="severityField"></TextField>
+				<Label class="labelLikeTextField" id="severityField"  onClick="showSeverityPickerDialog"></Label>
 				<Label class="label">Mitigation Plan:</Label>
 				<TextArea id="mitigationField"></TextArea>
 				<Label class="label">Comments:</Label>
@@ -40,5 +39,6 @@
 			</ScrollView>
 
 		</Window>
+
 	</Tab>
 </Alloy>

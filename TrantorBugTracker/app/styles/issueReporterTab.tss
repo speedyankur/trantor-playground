@@ -19,8 +19,19 @@
 	left: 10,
 	right: 10,
 	color: '#000',
-	borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+	borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
+	height:40
 },
+".labelLikeTextField":{
+	top: 5,
+	left: 10,
+	right: 10,
+	color: '#000',
+	backgroundColor:'#fff',
+	width:Ti.UI.FILL,
+	height:40,
+	borderRadius:5
+}
 "TextArea":{
 	top: 10,
 	left: 10,
@@ -34,12 +45,7 @@
 	left: 10,
 	right: 10
 },
-"#dateResolved [platform=android]":{
-	softKeyboardOnFocus: "Titanium.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS"
-},
-"#dateIdentified [platform=android]":{
-	softKeyboardOnFocus: "Titanium.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS"
-}
+
 "#next":{
 	color: '#fff',
 	font: {

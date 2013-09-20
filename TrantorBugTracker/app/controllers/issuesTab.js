@@ -16,7 +16,8 @@ function refreshIssues() {
 				for ( var i = 0; i < response.results.length; i++) {
 					var args = {};
 					args.title = response.results[i].Description;
-					switch (response.results[i].severity) {
+					var severity = response.results[i].severity.toLowerCase();
+					switch (severity) {
 					case "high":
 						args.leftImage = "/images/busy-icon.png";
 						break;

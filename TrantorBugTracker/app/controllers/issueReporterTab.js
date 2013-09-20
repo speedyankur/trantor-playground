@@ -1,8 +1,7 @@
 var currentSelctedDateField;
 
 function showPickerView(e) {
-	if (OS_IOS)
-		e.source.blur();
+
 	currentSelctedDateField = e.source.name;
 	if (OS_IOS)
 		$.pickerView.animate(slide_in);
@@ -19,10 +18,10 @@ function showPickerView(e) {
 					switch (currentSelctedDateField) {
 
 						case "DATE_IDENTIFIED":
-							$.dateIdentified.value = selectedDateValue;
+							$.dateIdentified.text = selectedDateValue;
 							break;
 						case "DATE_RESOLVED":
-							$.dateResolved.value = selectedDateValue;
+							$.dateResolved.text = selectedDateValue;
 							break;
 
 					}
@@ -41,15 +40,43 @@ function hidePickerView(e) {
 	switch (currentSelctedDateField) {
 
 		case "DATE_IDENTIFIED":
-			$.dateIdentified.value = selectedDateValue;
+			$.dateIdentified.text = selectedDateValue;
 			$.dateIdentified.data = $.picker.value.toISOString();
 			break;
 		case "DATE_RESOLVED":
-			$.dateResolved.value = selectedDateValue;
+			$.dateResolved.text = selectedDateValue;
 			$.dateResolved.data = $.picker.value.toISOString();
 			break;
 
 	}
+}
+
+
+
+
+	
+
+function showStatusPickerDialog(){
+	var statusPickerDialog = Titanium.UI.createOptionDialog({
+		options : ['OPEN', 'CLOSE','IN-PROGRESS'],
+		title : 'Please Select Status Level'
+	});
+	statusPickerDialog.addEventListener('click', function(e) {
+		$.statusField.text = e.source.options[e.index];
+	});	
+	statusPickerDialog.show();	
+}
+
+
+function showSeverityPickerDialog(){
+	var severityPickerDialog = Titanium.UI.createOptionDialog({
+		options : ['HIGH', 'MEDIUM','LOW'],
+		title : 'Please Select Severity Level'
+	});
+	severityPickerDialog.addEventListener('click', function(e) {
+		$.severityField.text = e.source.options[e.index];
+	});	
+	severityPickerDialog.show();	
 }
 
 var slide_in = Titanium.UI.createAnimation({
@@ -81,8 +108,8 @@ function submit() {
 	var data = {
 		"project" : $.projectField.value,
 		"Description" : $.descriptionField.value,
-		status : $.statusField.value,
-		severity : $.severityField.value,
+		status : $.statusField.text,
+		severity : $.severityField.text,
 		mitigationPlan : $.mitigationField.value,
 		comments : $.commentsField.value
 	};

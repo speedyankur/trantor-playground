@@ -38,24 +38,23 @@ function MyActivityIndicator(args) {
 
 	} else {
 
-		self = Titanium.UI.createWindow({
-			height : height,
-			width : width,
-			top : top,
-			borderRadius : 10,
-			touchEnabled : false,
-			backgroundColor : '#000',
-			opacity : 0.6
-		});
 
-		view = Ti.UI.createView({
-			width : Ti.UI.SIZE,
-			height : Ti.UI.FILL,
+
+		self = Ti.UI.createView({
+			width : Ti.UI.FILL,
+			height : 75,
+			left : 20,
+			right:20,
 			center : {
 				x : (width / 2),
 				y : (height / 2)
 			},
-			layout : 'horizontal'
+			layout : 'horizontal',
+			borderRadius : 10,
+			touchEnabled : false,
+			backgroundColor : '#000',
+			opacity : 0.6,
+			top:150
 		});
 
 		activityIndicator = Ti.UI.createActivityIndicator({
@@ -78,9 +77,8 @@ function MyActivityIndicator(args) {
 			}
 		});
 
-		view.add(activityIndicator);
-		view.add(label);
-		self.add(view);
+		self.add(activityIndicator);
+		self.add(label);
 		// self.open();
 		self.hide();
 

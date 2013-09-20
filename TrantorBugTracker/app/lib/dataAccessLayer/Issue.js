@@ -13,14 +13,14 @@ exports.getAllIssues = function(callback) {
 		},
 		onerror : function(e) {
 			// Display error message
+			Alloy.Globals.progressBar.closeIndicator();
 			var errorAlert = Titanium.UI.createAlertDialog({
 				title : 'Connection Error',
 				message : 'A problem has occured. Please make sure you have internet access and try again.',
-				buttonNames : ['OK'],
-				cancel : 1
+				buttonNames : ['OK']
 			});
 			errorAlert.show();
-			Alloy.Globals.progressBar.closeIndicator();
+			
 
 		}
 	});
@@ -40,14 +40,14 @@ exports.addNewIssue = function(data) {
 		},
 		onload : function(e) {
 			var responseData = JSON.parse(this.responseText);
+			Alloy.Globals.progressBar.closeIndicator();
 			var errorAlert = Titanium.UI.createAlertDialog({
 				title : 'Issue Submitted successfully ',
 				message : 'Issue Submitted Successfully, You can see the same issue listed under All Issues Tab',
-				buttonNames : ['OK'],
-				cancel : 1
+				buttonNames : ['OK']
 			});
 			errorAlert.show();
-			Alloy.Globals.progressBar.closeIndicator();
+			
 
 		},
 		onerror : function(e) {
@@ -56,8 +56,7 @@ exports.addNewIssue = function(data) {
 			var errorAlert = Titanium.UI.createAlertDialog({
 				title : 'Connection Error',
 				message : 'A problem has occured. Please make sure you have internet access and try again.',
-				buttonNames : ['OK'],
-				cancel : 1
+				buttonNames : ['OK']
 			});
 			errorAlert.show();
 			Alloy.Globals.progressBar.closeIndicator();
