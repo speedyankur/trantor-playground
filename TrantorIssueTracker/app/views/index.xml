@@ -2,6 +2,6 @@
 	<TabGroup id="tabGroup">
 		<Require src="issuesTab" id="allIssuesTab"/>
 		<Require src="issueReporterTab" id="issueReporterTab"/>		
-		<Require src="settingsTab" id="issueReporterTab"/>
+		<Require src="settingsTab" id="settingsTab"/>
 	</TabGroup>
 </Alloy>

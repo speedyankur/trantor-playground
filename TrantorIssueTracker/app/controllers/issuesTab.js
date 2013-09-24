@@ -74,6 +74,7 @@ function refreshIssues() {
 	});
 }
 
+
 refreshIssues();
 
 if (OS_ANDROID) {

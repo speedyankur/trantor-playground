@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <property name="acs-oauth-secret-production" type="string">oxmivEMt9DiLSZjvhqITcdocacdOBH7M</property>
-    <property name="acs-oauth-key-production" type="string">NDyuq3j9nq4UWfhk7zJomWpzXwCboJVY</property>
-    <property name="acs-api-key-production" type="string">A7xdAm2fyaAYPjXoMoqXXPaMiSxhEI93</property>
-    <property name="acs-oauth-secret-development" type="string">T10ytYYSMQdUssFtmT5HDHGhdEqu6Xkq</property>
-    <property name="acs-oauth-key-development" type="string">c9YnGF5sNTQOkv5O0H4RzmkzwPeDpxIO</property>
-    <property name="acs-api-key-development" type="string">E0LI9LNGqyWq4ToQZCuTrs7k5edSzQTl</property>
+    <property name="acs-oauth-secret-development" type="string">tVIJhqmqFLylWt5E2cD8NWZmv2YR7Irj</property>
+    <property name="acs-oauth-key-development" type="string">PsLzp6JsDXtOXGMbGUXAIcggzER7ZPRw</property>
+    <property name="acs-api-key-development" type="string">GpUTR1s9lSKLPynGD2U4UHNHkKPvXqb5</property>
+    <property name="acs-oauth-secret-production" type="string">FtZuaCqhWrm9Yq56I9P4BJ0irYg7tn2n</property>
+    <property name="acs-oauth-key-production" type="string">LCU2uXpDIRJsAd9masPgpbr3FjgDVBIC</property>
+    <property name="acs-api-key-production" type="string">3gMhUM02L6k305kyYNA7PNg5PjTp6WNU</property>
     <id>com.trantorinc.issuetracker</id>
-    <name>TrantorBugTracker</name>
+    <name>TrantorIssueTracker</name>
     <version>1.0</version>
     <publisher>admin</publisher>
     <url>http://</url>
@@ -21,8 +21,8 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>7c47af5c-1ae0-4292-960b-c892bd3be9fb</guid>
-    <property name="ti.ui.defaultunit" type="string">dip</property>
+    <guid>dccbab59-56db-4186-adca-0c3f8b5b6f56</guid>
+    <property name="ti.ui.defaultunit" type="string">system</property>
     <iphone>
         <orientations device="iphone">
             <orientation>Ti.UI.PORTRAIT</orientation>
@@ -34,10 +34,7 @@
             <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
         </orientations>
     </iphone>
-    <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:versionCode="1" android:versionName="1"
-            package="com.trantorinc.issuetracker" xmlns:android="http://schemas.android.com/apk/res/android"/>
-    </android>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
     <mobileweb>
         <precache/>
         <splash>
@@ -59,6 +56,6 @@
     </deployment-targets>
     <sdk-version>3.1.3.GA</sdk-version>
     <plugins>
-        <plugin version="1.2.2">ti.alloy</plugin>
+        <plugin version="1.0">ti.alloy</plugin>
     </plugins>
 </ti:app>
