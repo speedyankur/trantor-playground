@@ -5,9 +5,10 @@ if( OS_ANDROID ) {
 }
 
 var MyActivityIndicator = require('MyActivityIndicator');
-var progressBar = new MyActivityIndicator();
+var progressBar = new MyActivityIndicator({infiniteLoading:true});
 Alloy.Globals.progressBar = progressBar;
 
 
 
 Alloy.Globals.dataAccesslayer = require('dataAccessLayer/Issue');
+Alloy.Globals.User = require('dataAccessLayer/User');

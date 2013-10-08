@@ -1,6 +1,6 @@
 <Alloy>
-	<Tab title=" Settings" icon="/images/list_issuesetting.png">
-		<Window title="Settings">
+	<Tab title=" Settings" icon="/images/list_issuesetting.png" >
+		<Window title="Settings" id="settingsWindow">
 			<ScrollView layout="vertical">
 
 				<Label class="label">Sort Issues by:</Label>

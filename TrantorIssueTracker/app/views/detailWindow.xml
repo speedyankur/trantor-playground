@@ -29,17 +29,29 @@
 			<View  class="field">
 				<Label class="label">Severity:</Label>
 				<Label class="value" id="severityField"></Label>
-			</View>			
+			</View>
 			<View class="borderBottom"></View>
 			<View  class="field">
 				<Label class="label">Mitigation Plan:</Label>
 				<Label class="value" id="mitigationField"></Label>
-			</View>			
+			</View>
 			<View class="borderBottom"></View>
 			<View  class="field">
 				<Label class="label">Comments:</Label>
 				<Label class="value" id="commentsField"></Label>
-			</View>							
+			</View>
+
 		</ScrollView>
+			<View id="buttonBar">
+				<View width="33%">
+					<Label class="buttonBarLabel">Open</Label>
+				</View>
+				<View width="33%">
+					<Label class="buttonBarLabel">In-Progress</Label>
+				</View>
+				<View width="33%">
+					<Label class="buttonBarLabel">Close</Label>
+				</View>
+			</View>		
 	</Window>
 </Alloy>

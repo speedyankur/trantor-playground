@@ -14,3 +14,6 @@ $.severityField.text = args.severity;
 $.mitigationField.text = args.mitigationPlan;
 
 $.commentsField.text = args.comments;
+
+
+

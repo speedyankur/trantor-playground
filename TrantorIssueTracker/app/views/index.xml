@@ -1,7 +1,12 @@
 <Alloy>
-	<TabGroup id="tabGroup">
-		<Require src="issuesTab" id="allIssuesTab"/>
-		<Require src="issueReporterTab" id="issueReporterTab"/>		
-		<Require src="settingsTab" id="settingsTab"/>
-	</TabGroup>
+		<Window title="Login"  id="loginWindow">
+			<ScrollView layout="vertical">
+				<Label id="heading">Please enter your login details</Label>
+				<Label class="label">Username :</Label>
+				<TextField value="apptest" id="username" autocorrect=false autocapitalization=Ti.UI.TEXT_AUTOCAPITALIZATION_NONE hintText="User Id"></TextField>
+				<Label class="label">Password :</Label>
+				<TextField value="apptest" id="password" hintText="Password" passwordMask='true'></TextField>
+				<Widget  class="button" src="nl.fokkezb.button" onClick="doLogin" title="Login" style="bs-default" />`			
+			</ScrollView>
+		</Window>
 </Alloy>

@@ -1,3 +1,4 @@
 var args= arguments[0]||{}
 $.row.title=args.title;
-$.row.leftImage=args.leftImage;
+if(args.leftImage)
+	$.row.leftImage=args.leftImage;

@@ -8,7 +8,7 @@ $.tableView.addEventListener('click', function(e) {
 		animated : true
 	});
 });
-function refreshIssues() {
+function refreshIssues(e) {
 	data = [];
 	Alloy.Globals.dataAccesslayer.getAllIssues(function(response) {
 		if (response) {
@@ -39,7 +39,7 @@ function refreshIssues() {
 				for ( var i = 0; i < response.results.length; i++) {
 					var args = {};
 					args.title = response.results[i].Description;
-					var severity = response.results[i].severity.toLowerCase();
+					var severity = response.results[i].severity?response.results[i].severity.toLowerCase():"";
 					switch (severity) {
 					case "high":
 						args.leftImage = "/images/busy-icon.png";
@@ -52,8 +52,7 @@ function refreshIssues() {
 						break;
 
 					}
-					Ti.API.info(response.results[i].severity + "--"
-							+ args.leftImage)
+
 					var issueRow = Alloy.createController('issueRow', args)
 							.getView();
 					issueRow.issueDetails = response.results[i];
@@ -71,7 +70,11 @@ function refreshIssues() {
 
 		}
 		$.tableView.setData(data);
+		if(e && typeof(e.hide) === 'function'){
+			e.hide();
+		}
 	});
+
 }
 
 

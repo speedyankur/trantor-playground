@@ -2,7 +2,9 @@
 	<Tab title=" Issues" icon="/images/list_issue.png" id="issuesTab">
 
         <Window title="All Issues" id="issuesWindow"> 
-            <TableView id="tableView"></TableView>
+            <TableView id="tableView">
+            	<Widget id="ptr" src="nl.fokkezb.pullToRefresh" platform="ios" onRelease="refreshIssues" />
+            </TableView>
         </Window>
 
 

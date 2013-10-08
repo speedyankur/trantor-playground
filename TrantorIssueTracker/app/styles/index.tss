@@ -1,13 +1,38 @@
-"Window": {
-	backgroundColor: "#fff"
+"Window":{
+	backgroundColor:'#fff'
 },
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000",
+"#heading":{
+	top: 40,
+	left: 10,
+	right: 10,
+	textAlign:"center",
 	font: {
-		fontSize: 20,
-		fontFamily: 'Helvetica Neue'
+		fontSize: 18,
+		fontWeight: 'bold'
+	}
+},
+"Label":{
+	color: "#000"
+},
+".label":{
+	color: "#000",
+	top: 10,
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
 	},
-	textAlign: 'center'
-} 
+	left: 10,
+	right: 10
+}
+"TextField":{
+	clearButtonMode: Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
+	left: 10,
+	right: 10,
+	backgroundColor: '#fff',
+	color: '#000',
+	height: 40,
+	borderStyle : Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+},
+".button":{
+	top:15
+}

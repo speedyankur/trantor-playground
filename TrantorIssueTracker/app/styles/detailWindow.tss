@@ -28,4 +28,20 @@
 	},
 	left: 125,
 	right: 10
+},
+"#buttonBar":{
+	bottom:0,
+	borderWidth:1,
+	borderRadius:10,
+	height:40,
+	left:10,
+	right:10,
+	borderColor:"#000",
+	layout:"horizontal"
+},
+"ScrollView":{
+	bottom: 40
+},
+".buttonBarButton":{
+	buttonBarLabel:"center"
 }

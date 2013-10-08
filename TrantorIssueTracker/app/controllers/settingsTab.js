@@ -16,3 +16,26 @@ function saveSettings() {
 	Ti.App.Properties.setString('filter',$.sortField.text);
 	alert("Settings Saved");
 }
+
+
+if (OS_ANDROID) {
+
+	var activity = $.settingsWindow.activity;
+	activity.onCreateOptionsMenu = function(e) {
+		var menu = e.menu;
+		var menuItem1 = menu.add({
+			title : "Logout"
+		});
+		menuItem1.addEventListener('click', function() {
+			Alloy.Globals.tabGroup.close();
+		});
+	}
+} else {
+	var refershButton = Titanium.UI.createButton({
+		title : "Logout"
+	});
+	$.settingsWindow.setRightNavButton(refershButton);
+	refershButton.addEventListener("click", function() {
+		Alloy.Globals.tabGroup.close();
+	});
+}

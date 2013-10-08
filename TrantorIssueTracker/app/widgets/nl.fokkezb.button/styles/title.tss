@@ -1,0 +1,7 @@
+"#title": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	textAlign:"center",
+	width:100,
+	touchEnabled: false
+}
