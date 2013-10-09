@@ -27,7 +27,7 @@
 				<Label class="label">Date resolved:</Label>
 				<Label class="labelLikeTextField" id="dateResolved" name="DATE_RESOLVED" onClick="showPickerView"></Label>
 				<Label class="label">Status:</Label>
-				<Label class="labelLikeTextField" id="statusField"  onClick="showStatusPickerDialog"></Label>
+				<Label class="labelLikeTextField" id="statusField"  onClick="showStatusPickerDialog">OPEN</Label>
 				<Label class="label">Severity:</Label>
 				<Label class="labelLikeTextField" id="severityField"  onClick="showSeverityPickerDialog"></Label>
 				<Label class="label">Mitigation Plan:</Label>

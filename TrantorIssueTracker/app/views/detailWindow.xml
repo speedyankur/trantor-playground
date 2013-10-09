@@ -1,6 +1,6 @@
 <Alloy>
 	<Window title="Detail View" id="detailWindow">
-		<ScrollView layout="vertical" bottom="10">
+		<ScrollView layout="vertical" >
 			<View class="field">
 				<Label class="label">Project:</Label>
 				<Label class="value" id="projectNameField"></Label>
@@ -22,11 +22,6 @@
 			</View>
 			<View class="borderBottom"></View>
 			<View  class="field">
-				<Label class="label">Status:</Label>
-				<Label class="value" id="statusField"></Label>
-			</View>
-			<View class="borderBottom"></View>
-			<View  class="field">
 				<Label class="label">Severity:</Label>
 				<Label class="value" id="severityField"></Label>
 			</View>
@@ -40,17 +35,18 @@
 				<Label class="label">Comments:</Label>
 				<Label class="value" id="commentsField"></Label>
 			</View>
-
 		</ScrollView>
 			<View id="buttonBar">
-				<View width="33%">
-					<Label class="buttonBarLabel">Open</Label>
+				<View  id="openBtn" class="normalState" autoStyle="true" name="open" onClick="statusButtonClicked">
+					<Label class="buttonBarLabel" name="open">Open</Label>
 				</View>
-				<View width="33%">
-					<Label class="buttonBarLabel">In-Progress</Label>
+				<View class="buttonBarSeperator"></View>
+				<View  id="progressBtn" class="normalState" autoStyle="true" name="in-progress" onClick="statusButtonClicked" >
+					<Label class="buttonBarLabel" name="in-progress">In-Progress</Label>
 				</View>
-				<View width="33%">
-					<Label class="buttonBarLabel">Close</Label>
+				<View class="buttonBarSeperator"></View>
+				<View  id="closeBtn" class="normalState" autoStyle="true" name="close" onClick="statusButtonClicked">
+					<Label class="buttonBarLabel" name="close">Close</Label>
 				</View>
 			</View>		
 	</Window>

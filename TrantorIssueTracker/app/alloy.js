@@ -12,3 +12,5 @@ Alloy.Globals.progressBar = progressBar;
 
 Alloy.Globals.dataAccesslayer = require('dataAccessLayer/Issue');
 Alloy.Globals.User = require('dataAccessLayer/User');
+
+Alloy.Globals.loggedInUser = {};

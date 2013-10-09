@@ -71,3 +71,38 @@ exports.addNewIssue = function(data) {
 	xhr.send(data);
 
 }; 
+exports.updateStatusForIssue = function(data,issueId) {
+	Alloy.Globals.progressBar.openIndicator("Updating Issue");
+	var xhr = Titanium.Network.createHTTPClient({
+		onload : function(e) {
+			Alloy.Globals.progressBar.closeIndicator();
+			var errorAlert = Titanium.UI.createAlertDialog({
+				title : 'Update Success ',
+				message : 'Issue has been updated successfully.',
+				buttonNames : ['OK']
+			});
+			errorAlert.show();
+			
+
+		},
+		onerror : function(e) {
+			// Display error message
+			Ti.API.info(JSON.stringify(e));
+			var errorAlert = Titanium.UI.createAlertDialog({
+				title : 'Connection Error',
+				message : 'A problem has occured. Please make sure you have internet access and try again.',
+				buttonNames : ['OK']
+			});
+			errorAlert.show();
+			Alloy.Globals.progressBar.closeIndicator();
+
+		}
+	});
+	var url = "https://api.parse.com/1/classes/Issues/"+issueId;
+	xhr.open('PUT', url);
+	xhr.setRequestHeader('X-Parse-Application-Id', 'VpoxE6VBC7eT7LIJpEswgF7SLNqHPbPtOt5gih6V');
+	xhr.setRequestHeader('X-Parse-REST-API-Key', 'ewyhKvinwvAgrcygZnIggvfYqTghg2qQg63L8GzS');
+	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.send(data);
+
+}; 

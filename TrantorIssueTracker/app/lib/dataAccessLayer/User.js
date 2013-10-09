@@ -7,7 +7,8 @@ exports.login = function(username, password, callback) {
 
 				},
 				onload : function(e) {
-
+					Alloy.Globals.loggedInUser = JSON.parse(this.responseText)
+					//alert(JSON.stringify(Alloy.Globals.loggedInUser));
 					Alloy.Globals.progressBar.closeIndicator();
 					callback(e.success);
 

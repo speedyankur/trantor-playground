@@ -4,7 +4,7 @@
 },
 ".borderBottom":{
 	height: "1",
-	backgroundColor:"#808080",
+	backgroundColor: "#808080",
 	top: 5
 }
 ".field":{
@@ -30,18 +30,47 @@
 	right: 10
 },
 "#buttonBar":{
-	bottom:0,
-	borderWidth:1,
-	borderRadius:10,
-	height:40,
-	left:10,
-	right:10,
-	borderColor:"#000",
-	layout:"horizontal"
+	bottom: 5,
+	borderWidth: 1,
+	borderRadius: 10,
+	height: 40,
+	left: 10,
+	right: 10,
+	borderColor: "#808080",
+	layout: "horizontal"
 },
+'.buttonBarSeperator':{
+	width: 1,
+	backgroundColor: "#808080"
+}
 "ScrollView":{
-	bottom: 40
+	bottom: 50
 },
 ".buttonBarButton":{
-	buttonBarLabel:"center"
+	buttonBarLabel: "center"
+},
+".buttonBarLabel":{
+	font: {
+		fontWeight: 'bold'
+	}
+}
+".normalState":{
+	width:"33.1%",
+	color:'#7A7A7A',
+	backgroundGradient: {
+        type: 'linear',
+		startPoint: { x: '0%', y: '0%' },
+		endPoint: { x: '0%', y: '100%' },
+        colors: [ { color: '#FBFBFB', offset: 0.0},  { color: '#C9C9C9', offset: 1.0 } ]
+    }
+},
+".activeState":{
+	width:"33.1%",
+	color:'#7A7A7A',
+	backgroundGradient: {
+        type: 'linear',
+		startPoint: { x: '0%', y: '0%' },
+		endPoint: { x: '0%', y: '100%' },
+        colors: [ { color: '#006BBF', offset: 0.0},  { color: '#42ABF6', offset: 1.0 } ]
+    }
 }
