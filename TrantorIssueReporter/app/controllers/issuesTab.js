@@ -1,11 +1,19 @@
 var data = [];
 
 $.tableView.addEventListener('click', function(e) {
-	var issueDetails = e.row.issueDetails;
-	var detailWindow = Alloy.createController('detailWindow', issueDetails).getView();
-	$.issuesTab.open(detailWindow, {
-		animated : true
-	});
+	if(e.row.hasChild){
+		var issueDetails = e.row.issueDetails;
+		issueDetails.callback = function(status){
+			var issueDetails = e.row.issueDetails; 
+			issueDetails.status = status.toLowerCase();
+			e.row.issueDetails = issueDetails;
+		}
+		var detailWindow = Alloy.createController('detailWindow', issueDetails).getView();
+		$.issuesTab.open(detailWindow, {
+			animated : true
+		});		
+	}
+
 });
 
 function onLongpress(eOuter) {
@@ -25,7 +33,7 @@ function onLongpress(eOuter) {
 				Alloy.createWidget('toasty', {
 					title : 'Success',
 					message : 'Issue has been deleted successfully',
-					type : 'info'
+					type : 'confirm'
 				}).show();
 			})
 		}
@@ -64,6 +72,7 @@ function refreshIssues(e) {
 				for (var i = 0; i < response.results.length; i++) {
 					var args = {};
 					args.title = response.results[i].Description;
+					args.hasChild = true;
 					var severity = response.results[i].severity ? response.results[i].severity.toLowerCase() : "";
 					switch (severity) {
 						case "high":
@@ -85,6 +94,7 @@ function refreshIssues(e) {
 				var args = {};
 				args.title = "No Issues Found";
 				args.leftImage = "none";
+				args.hasChild = false;
 				var issueRow = Alloy.createController('issueRow', args).getView();
 				data.push(issueRow);
 
@@ -99,6 +109,7 @@ function refreshIssues(e) {
 
 }
 
+exports.refreshIssues = refreshIssues;
 refreshIssues();
 
 if (OS_ANDROID) {

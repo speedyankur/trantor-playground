@@ -1,8 +1,13 @@
 "Window":{
 	backgroundImage: 'images/ios_bg.jpg',
 	backgroundRepeat: true
+},
+"#picker": {
+	top: 0,
+	left: 0,
+	width: Ti.UI.FILL,
+	height: 215
 }
-
 ".label":{
 	color: "#000",
 	top: 10,
@@ -45,19 +50,12 @@
 	left: 10,
 	right: 10
 },
-
-"#next":{
-	color: '#fff',
-	font: {
-		fontSize: '15',
-		fontWeight: 'bold'
-	},
-	borderRadius: "5",
-	backgroundImage: "none",
-	backgroundSelectedImage: "none",
-	height: "40",
-	left: '25',
-	right: '25'
+".button":{
+	top:15,
+	left: 10,
+	right: 10,
+	width:Ti.UI.FILL,
+	borderRadius:23
 }
 
 

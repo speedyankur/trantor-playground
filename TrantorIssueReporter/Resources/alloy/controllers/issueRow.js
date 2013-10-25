@@ -9,7 +9,6 @@ function Controller() {
     $.__views.row = Ti.UI.createTableViewRow({
         color: "#000",
         id: "row",
-        hasChild: "true",
         height: "50"
     });
     $.__views.row && $.addTopLevelView($.__views.row);
@@ -18,6 +17,7 @@ function Controller() {
     var args = arguments[0] || {};
     $.row.title = args.title;
     args.leftImage && ($.row.leftImage = args.leftImage);
+    $.row.hasChild = args.hasChild;
     _.extend($, exports);
 }
 

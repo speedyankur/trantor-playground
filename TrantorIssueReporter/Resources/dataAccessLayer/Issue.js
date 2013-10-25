@@ -55,7 +55,7 @@ exports.deleteIssue = function(issueId, callback) {
     xhr.send('{"isDeleted":true}');
 };
 
-exports.addNewIssue = function(data) {
+exports.addNewIssue = function(data, callback) {
     Alloy.Globals.progressBar.openIndicator("Submitting Issue");
     var xhr = Titanium.Network.createHTTPClient({
         ondatastream: function(e) {
@@ -64,12 +64,7 @@ exports.addNewIssue = function(data) {
         onload: function() {
             JSON.parse(this.responseText);
             Alloy.Globals.progressBar.closeIndicator();
-            var errorAlert = Titanium.UI.createAlertDialog({
-                title: "Issue Submitted successfully ",
-                message: "Issue Submitted Successfully, You can see the same issue listed under All Issues Tab",
-                buttonNames: [ "OK" ]
-            });
-            errorAlert.show();
+            callback(true);
         },
         onerror: function(e) {
             Ti.API.info(JSON.stringify(e));
@@ -90,17 +85,12 @@ exports.addNewIssue = function(data) {
     xhr.send(data);
 };
 
-exports.updateStatusForIssue = function(data, issueId) {
+exports.updateStatusForIssue = function(data, issueId, callback) {
     Alloy.Globals.progressBar.openIndicator("Updating Issue");
     var xhr = Titanium.Network.createHTTPClient({
         onload: function() {
             Alloy.Globals.progressBar.closeIndicator();
-            var errorAlert = Titanium.UI.createAlertDialog({
-                title: "Update Success ",
-                message: "Issue has been updated successfully.",
-                buttonNames: [ "OK" ]
-            });
-            errorAlert.show();
+            callback(true);
         },
         onerror: function(e) {
             Ti.API.info(JSON.stringify(e));
@@ -111,6 +101,7 @@ exports.updateStatusForIssue = function(data, issueId) {
             });
             errorAlert.show();
             Alloy.Globals.progressBar.closeIndicator();
+            callback(false);
         }
     });
     var url = "https://api.parse.com/1/classes/Issues/" + issueId;

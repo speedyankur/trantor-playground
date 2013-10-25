@@ -53,7 +53,7 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.title = Ti.UI.createLabel({
-        width: 100,
+        width: "100%",
         height: Ti.UI.SIZE,
         textAlign: "center",
         touchEnabled: false,

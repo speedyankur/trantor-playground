@@ -1,4 +1,16 @@
 function Controller() {
+    function onOpen() {
+        var activity = $.tabGroup.getActivity();
+        activity.onCreateOptionsMenu = function(e) {
+            var menuItem = e.menu.add({
+                title: "Refersh Issues"
+            });
+            menuItem.addEventListener("click", function() {
+                $.allIssuesTab.refreshIssues();
+            });
+        };
+        activity.invalidateOptionsMenu();
+    }
     function getDeviceToken() {
         Titanium.Network.registerForPushNotifications({
             types: [ Titanium.Network.NOTIFICATION_TYPE_BADGE, Titanium.Network.NOTIFICATION_TYPE_ALERT, Titanium.Network.NOTIFICATION_TYPE_SOUND ],
@@ -28,8 +40,10 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
+    var __defers = {};
     $.__views.tabGroup = Ti.UI.createTabGroup({
-        id: "tabGroup"
+        id: "tabGroup",
+        navBarHidden: "true"
     });
     $.__views.allIssuesTab = Alloy.createController("issuesTab", {
         id: "allIssuesTab"
@@ -50,6 +64,7 @@ function Controller() {
         recurse: true
     }));
     $.__views.tabGroup && $.addTopLevelView($.__views.tabGroup);
+    onOpen ? $.__views.tabGroup.addEventListener("open", onOpen) : __defers["$.__views.tabGroup!open!onOpen"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.tabGroup.add(Alloy.Globals.progressBar);
@@ -66,6 +81,7 @@ function Controller() {
             getDeviceToken();
         }
     });
+    __defers["$.__views.tabGroup!open!onOpen"] && $.__views.tabGroup.addEventListener("open", onOpen);
     _.extend($, exports);
 }
 

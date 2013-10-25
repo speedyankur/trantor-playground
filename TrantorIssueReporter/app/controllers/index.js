@@ -21,6 +21,7 @@ function doLogin() {
 	}	
 	Alloy.Globals.User.login($.username.value, $.password.value, function(
 			status) {
+		Ti.API.info("status--"+status);
 		if (status) {
 			var controller = Alloy.createController('allTabs');
 			var win = controller.getView();

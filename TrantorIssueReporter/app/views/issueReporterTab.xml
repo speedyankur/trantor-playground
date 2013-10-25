@@ -6,7 +6,7 @@
 
 					<!-- The Items tag sets the Toolbar.items property. -->
 					<Items>
-						<Button id="cancel" systemButton="Ti.UI.iPhone.SystemButton.CANCEL" />
+						<Button id="cancel" onClick="dismissPickerView" systemButton="Ti.UI.iPhone.SystemButton.CANCEL" />
 						<FlexSpace/>
 						<Button onClick="hidePickerView" systemButton="Ti.UI.iPhone.SystemButton.DONE" />
 					</Items>
@@ -34,7 +34,7 @@
 				<TextArea id="mitigationField"></TextArea>
 				<Label class="label">Comments:</Label>
 				<TextArea id="commentsField"></TextArea>
-				<Button top="15"  id="next" onClick="submit" backgroundColor="#30D1F4" backgroundSelectedColor="#808080" title="Save"  ></Button>
+				<Widget  class="button" src="nl.fokkezb.button" id="next" onClick="submit" title="Save" style="bs-primary" />
 
 			</ScrollView>
 

@@ -66,7 +66,7 @@ exports.deleteIssue = function(issueId,callback) {
 
 };
 
-exports.addNewIssue = function(data) {
+exports.addNewIssue = function(data,callback) {
 	
 	Alloy.Globals.progressBar.openIndicator("Submitting Issue");
 	var xhr = Titanium.Network.createHTTPClient({
@@ -76,13 +76,7 @@ exports.addNewIssue = function(data) {
 		onload : function(e) {
 			var responseData = JSON.parse(this.responseText);
 			Alloy.Globals.progressBar.closeIndicator();
-			var errorAlert = Titanium.UI.createAlertDialog({
-				title : 'Issue Submitted successfully ',
-				message : 'Issue Submitted Successfully, You can see the same issue listed under All Issues Tab',
-				buttonNames : ['OK']
-			});
-			errorAlert.show();
-			
+			callback(true);
 
 		},
 		onerror : function(e) {
@@ -106,17 +100,12 @@ exports.addNewIssue = function(data) {
 	xhr.send(data);
 
 }; 
-exports.updateStatusForIssue = function(data,issueId) {
+exports.updateStatusForIssue = function(data,issueId,callback) {
 	Alloy.Globals.progressBar.openIndicator("Updating Issue");
 	var xhr = Titanium.Network.createHTTPClient({
 		onload : function(e) {
 			Alloy.Globals.progressBar.closeIndicator();
-			var errorAlert = Titanium.UI.createAlertDialog({
-				title : 'Update Success ',
-				message : 'Issue has been updated successfully.',
-				buttonNames : ['OK']
-			});
-			errorAlert.show();
+			callback(true);
 			
 
 		},
@@ -130,6 +119,8 @@ exports.updateStatusForIssue = function(data,issueId) {
 			});
 			errorAlert.show();
 			Alloy.Globals.progressBar.closeIndicator();
+			callback(false);
+			
 
 		}
 	});

@@ -24,7 +24,16 @@ function Controller() {
             status: e.source.name
         };
         "close" == e.source.name && (data["closedBy"] = Alloy.Globals.loggedInUser.username);
-        Alloy.Globals.dataAccesslayer.updateStatusForIssue(JSON.stringify(data), args.objectId);
+        Alloy.Globals.dataAccesslayer.updateStatusForIssue(JSON.stringify(data), args.objectId, function(status) {
+            if (status) {
+                args.callback(e.source.name);
+                Alloy.createWidget("toasty", {
+                    title: "Success",
+                    message: "Issue status has been updated successfully",
+                    type: "confirm"
+                }).show();
+            }
+        });
         updateButtonbar(e.source.name);
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -436,6 +445,7 @@ function Controller() {
     $.commentsField.text = args.comments;
     var status = args.status ? args.status.toLowerCase() : "open";
     updateButtonbar(status);
+    $.detailWindow.navBarHidden = true;
     __defers["$.__views.openBtn!click!statusButtonClicked"] && $.__views.openBtn.addEventListener("click", statusButtonClicked);
     __defers["$.__views.progressBtn!click!statusButtonClicked"] && $.__views.progressBtn.addEventListener("click", statusButtonClicked);
     __defers["$.__views.closeBtn!click!statusButtonClicked"] && $.__views.closeBtn.addEventListener("click", statusButtonClicked);

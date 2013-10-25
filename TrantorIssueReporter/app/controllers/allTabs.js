@@ -1,4 +1,19 @@
 $.tabGroup.add(Alloy.Globals.progressBar);
+function onOpen() {
+	if (OS_ANDROID) {
+		var activity = $.tabGroup.getActivity();
+		activity.onCreateOptionsMenu = function(e) {
+			var menuItem = e.menu.add({
+				title : "Refersh Issues"
+			});
+			menuItem.addEventListener('click', function() {
+				$.allIssuesTab.refreshIssues();
+			});
+		}
+		activity.invalidateOptionsMenu();
+	}
+
+}
 $.tabGroup.open();
 Alloy.Globals.tabGroup = $.tabGroup;
 

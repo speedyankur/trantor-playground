@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+provisioning_profiles/adhoc/037B536B-0719-49B6-ACDC-439A54FF0F6E/appid=com.trantorInc.localDeals
+provisioning_profiles/adhoc/037B536B-0719-49B6-ACDC-439A54FF0F6E/name=local
+provisioning_profiles/adhoc/037B536B-0719-49B6-ACDC-439A54FF0F6E/uuid=037B536B-0719-49B6-ACDC-439A54FF0F6E
+provisioning_profiles/adhoc/42AE8DB7-A244-4B99-9A67-3BA3EF9704B3/appid=com.whichiscooler.app
+provisioning_profiles/adhoc/42AE8DB7-A244-4B99-9A67-3BA3EF9704B3/name=WhichIsCooler
+provisioning_profiles/adhoc/42AE8DB7-A244-4B99-9A67-3BA3EF9704B3/uuid=42AE8DB7-A244-4B99-9A67-3BA3EF9704B3
+provisioning_profiles/adhoc/8CCA614F-210A-487F-BB26-4442065C0BAA/appid=com.trantorinc.issuetracker
+provisioning_profiles/adhoc/8CCA614F-210A-487F-BB26-4442065C0BAA/name=Trantor Issue Tracker Distribution
+provisioning_profiles/adhoc/8CCA614F-210A-487F-BB26-4442065C0BAA/uuid=8CCA614F-210A-487F-BB26-4442065C0BAA
+provisioning_profiles/adhoc/B9775BA6-F441-4583-9854-C040507CAABF/appid=com.homeinspectorsupport.help
+provisioning_profiles/adhoc/B9775BA6-F441-4583-9854-C040507CAABF/name=COA Distribution
+provisioning_profiles/adhoc/B9775BA6-F441-4583-9854-C040507CAABF/uuid=B9775BA6-F441-4583-9854-C040507CAABF

@@ -27,12 +27,12 @@ function Controller() {
         title: "Settings",
         id: "settingsWindow"
     });
-    $.__views.__alloyId51 = Ti.UI.createScrollView({
+    $.__views.__alloyId54 = Ti.UI.createScrollView({
         layout: "vertical",
-        id: "__alloyId51"
+        id: "__alloyId54"
     });
-    $.__views.settingsWindow.add($.__views.__alloyId51);
-    $.__views.__alloyId52 = Ti.UI.createLabel({
+    $.__views.settingsWindow.add($.__views.__alloyId54);
+    $.__views.__alloyId55 = Ti.UI.createLabel({
         color: "#000",
         top: 10,
         font: {
@@ -42,9 +42,9 @@ function Controller() {
         left: 10,
         right: 10,
         text: "Sort Issues by:",
-        id: "__alloyId52"
+        id: "__alloyId55"
     });
-    $.__views.__alloyId51.add($.__views.__alloyId52);
+    $.__views.__alloyId54.add($.__views.__alloyId55);
     $.__views.sortField = Ti.UI.createLabel({
         top: 5,
         left: 10,
@@ -56,28 +56,21 @@ function Controller() {
         borderRadius: 5,
         id: "sortField"
     });
-    $.__views.__alloyId51.add($.__views.sortField);
+    $.__views.__alloyId54.add($.__views.sortField);
     showFiterPicker ? $.__views.sortField.addEventListener("click", showFiterPicker) : __defers["$.__views.sortField!click!showFiterPicker"] = true;
-    $.__views.__alloyId53 = Ti.UI.createButton({
-        color: "#fff",
-        font: {
-            fontSize: "15",
-            fontWeight: "bold"
-        },
-        borderRadius: "5",
-        backgroundImage: "none",
-        backgroundSelectedImage: "none",
-        height: "40",
-        left: "25",
-        right: "25",
-        top: "15",
-        backgroundColor: "#30D1F4",
-        backgroundSelectedColor: "#808080",
+    $.__views.next = Alloy.createWidget("nl.fokkezb.button", "widget", {
+        top: 15,
+        left: 10,
+        right: 10,
+        width: Ti.UI.FILL,
+        borderRadius: 23,
+        id: "next",
         title: "Save",
-        id: "__alloyId53"
+        style: "bs-primary",
+        __parentSymbol: $.__views.__alloyId54
     });
-    $.__views.__alloyId51.add($.__views.__alloyId53);
-    saveSettings ? $.__views.__alloyId53.addEventListener("click", saveSettings) : __defers["$.__views.__alloyId53!click!saveSettings"] = true;
+    $.__views.next.setParent($.__views.__alloyId54);
+    saveSettings ? $.__views.next.on("click", saveSettings) : __defers["$.__views.next!click!saveSettings"] = true;
     $.__views.settingsTab = Ti.UI.createTab({
         window: $.__views.settingsWindow,
         title: " Settings",
@@ -99,7 +92,7 @@ function Controller() {
         });
     };
     __defers["$.__views.sortField!click!showFiterPicker"] && $.__views.sortField.addEventListener("click", showFiterPicker);
-    __defers["$.__views.__alloyId53!click!saveSettings"] && $.__views.__alloyId53.addEventListener("click", saveSettings);
+    __defers["$.__views.next!click!saveSettings"] && $.__views.next.on("click", saveSettings);
     _.extend($, exports);
 }
 

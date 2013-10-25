@@ -34,15 +34,31 @@ function statusButtonClicked(e) {
 	var data = {
 		"status" : e.source.name
 	};
-	//alert("username--" + Alloy.Globals.loggedInUser.username);
 	if (e.source.name == "close")
 		data["closedBy"] = Alloy.Globals.loggedInUser.username;
 
-	//alert("data--" + JSON.stringify(data)+"--objectId--"+args.objectId);
-	Alloy.Globals.dataAccesslayer.updateStatusForIssue(JSON.stringify(data),args.objectId);
+	Alloy.Globals.dataAccesslayer.updateStatusForIssue(JSON.stringify(data),args.objectId,function(status){
+		if(status){
+			args.callback(e.source.name);
+			Alloy.createWidget('toasty', {
+				title : 'Success',
+				message : 'Issue status has been updated successfully',
+				type : 'confirm'
+			}).show();
+		}
+	});
 
 	updateButtonbar(e.source.name);
 
 }
 
 updateButtonbar(status);
+
+
+
+
+/*
+ * Hide nav bar for android
+ */
+if(OS_ANDROID)
+	$.detailWindow.navBarHidden=true;

@@ -1,1 +1,1 @@
-module.exports = [{"isApi":true,"priority":1000.0056,"key":"TableViewRow","style":{color:"#000",}}];
+module.exports = [{"isApi":true,"priority":1000.0057,"key":"TableViewRow","style":{color:"#000",}}];

@@ -1,5 +1,9 @@
 var currentSelctedDateField;
 
+function dismissPickerView() {
+	if (OS_IOS)
+		$.pickerView.animate(slide_out);
+}
 function showPickerView(e) {
 
 	currentSelctedDateField = e.source.name;
@@ -17,12 +21,12 @@ function showPickerView(e) {
 
 					switch (currentSelctedDateField) {
 
-						case "DATE_IDENTIFIED":
-							$.dateIdentified.text = selectedDateValue;
-							break;
-						case "DATE_RESOLVED":
-							$.dateResolved.text = selectedDateValue;
-							break;
+					case "DATE_IDENTIFIED":
+						$.dateIdentified.text = selectedDateValue;
+						break;
+					case "DATE_RESOLVED":
+						$.dateResolved.text = selectedDateValue;
+						break;
 
 					}
 				}
@@ -39,44 +43,38 @@ function hidePickerView(e) {
 	Ti.API.info("picker value iso=" + $.picker.value.toISOString())
 	switch (currentSelctedDateField) {
 
-		case "DATE_IDENTIFIED":
-			$.dateIdentified.text = selectedDateValue;
-			$.dateIdentified.data = $.picker.value.toISOString();
-			break;
-		case "DATE_RESOLVED":
-			$.dateResolved.text = selectedDateValue;
-			$.dateResolved.data = $.picker.value.toISOString();
-			break;
+	case "DATE_IDENTIFIED":
+		$.dateIdentified.text = selectedDateValue;
+		$.dateIdentified.data = $.picker.value.toISOString();
+		break;
+	case "DATE_RESOLVED":
+		$.dateResolved.text = selectedDateValue;
+		$.dateResolved.data = $.picker.value.toISOString();
+		break;
 
 	}
 }
 
-
-
-
-	
-
-function showStatusPickerDialog(){
+function showStatusPickerDialog() {
 	var statusPickerDialog = Titanium.UI.createOptionDialog({
-		options : ['OPEN', 'CLOSE','IN-PROGRESS'],
+		options : [ 'OPEN', 'CLOSE', 'IN-PROGRESS' ],
 		title : 'Please Select Status Level'
 	});
 	statusPickerDialog.addEventListener('click', function(e) {
 		$.statusField.text = e.source.options[e.index];
-	});	
-	statusPickerDialog.show();	
+	});
+	statusPickerDialog.show();
 }
 
-
-function showSeverityPickerDialog(){
+function showSeverityPickerDialog() {
 	var severityPickerDialog = Titanium.UI.createOptionDialog({
-		options : ['HIGH', 'MEDIUM','LOW'],
+		options : [ 'HIGH', 'MEDIUM', 'LOW' ],
 		title : 'Please Select Severity Level'
 	});
 	severityPickerDialog.addEventListener('click', function(e) {
 		$.severityField.text = e.source.options[e.index];
-	});	
-	severityPickerDialog.show();	
+	});
+	severityPickerDialog.show();
 }
 
 var slide_in = Titanium.UI.createAnimation({
@@ -87,26 +85,23 @@ var slide_out = Titanium.UI.createAnimation({
 });
 
 function submit() {
-	if($.projectField.value == "")
-	{
+	if ($.projectField.value == "") {
 		alert("Enter Project Name");
 		$.projectField.focus();
 		return;
 	}
-	if($.descriptionField.value == "")
-	{
+	if ($.descriptionField.value == "") {
 		alert("Enter Description");
 		$.descriptionField.focus();
 		return;
 	}
-	if($.severityField.value == "")
-	{
+	if ($.severityField.value == "") {
 		alert("Enter Severity");
 		$.severityField.focus();
 		return;
-	}	
+	}
 	var data = {
-		"isDeleted":false,
+		"isDeleted" : false,
 		"project" : $.projectField.value,
 		"Description" : $.descriptionField.value,
 		status : $.statusField.text,
@@ -129,6 +124,20 @@ function submit() {
 	Ti.API.info("data--" + JSON.stringify(data));
 	var dataToPost = JSON.parse(JSON.stringify(data));
 	Ti.API.info("data--" + dataToPost);
-	Alloy.Globals.dataAccesslayer.addNewIssue(JSON.stringify(data));
+	Alloy.Globals.dataAccesslayer
+			.addNewIssue(
+					JSON.stringify(data),
+					function(result) {
+						if (result) {
+							Alloy
+									.createWidget(
+											'toasty',
+											{
+												title : 'Success',
+												message : 'Issue submitted successfully, You can see the same issue listed under All Issues Tab',
+												type : 'confirm'
+											}).show();
+						}
+					});
 
 }

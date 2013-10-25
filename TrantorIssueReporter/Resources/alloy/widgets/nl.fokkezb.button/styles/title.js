@@ -9,7 +9,7 @@ module.exports = [ {
     priority: 100000.0004,
     key: "title",
     style: {
-        width: 100,
+        width: "100%",
         height: Ti.UI.SIZE,
         textAlign: "center",
         touchEnabled: false

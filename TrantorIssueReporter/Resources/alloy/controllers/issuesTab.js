@@ -15,7 +15,7 @@ function Controller() {
                     Alloy.createWidget("toasty", {
                         title: "Success",
                         message: "Issue has been deleted successfully",
-                        type: "info"
+                        type: "confirm"
                     }).show();
                 });
             }
@@ -48,6 +48,7 @@ function Controller() {
                 for (var i = 0; response.results.length > i; i++) {
                     var args = {};
                     args.title = response.results[i].Description;
+                    args.hasChild = true;
                     var severity = response.results[i].severity ? response.results[i].severity.toLowerCase() : "";
                     switch (severity) {
                       case "high":
@@ -69,6 +70,7 @@ function Controller() {
                 var args = {};
                 args.title = "No Issues Found";
                 args.leftImage = "none";
+                args.hasChild = false;
                 var issueRow = Alloy.createController("issueRow", args).getView();
                 data.push(issueRow);
             }
@@ -105,12 +107,20 @@ function Controller() {
     _.extend($, $.__views);
     var data = [];
     $.tableView.addEventListener("click", function(e) {
-        var issueDetails = e.row.issueDetails;
-        var detailWindow = Alloy.createController("detailWindow", issueDetails).getView();
-        $.issuesTab.open(detailWindow, {
-            animated: true
-        });
+        if (e.row.hasChild) {
+            var issueDetails = e.row.issueDetails;
+            issueDetails.callback = function(status) {
+                var issueDetails = e.row.issueDetails;
+                issueDetails.status = status.toLowerCase();
+                e.row.issueDetails = issueDetails;
+            };
+            var detailWindow = Alloy.createController("detailWindow", issueDetails).getView();
+            $.issuesTab.open(detailWindow, {
+                animated: true
+            });
+        }
     });
+    exports.refreshIssues = refreshIssues;
     refreshIssues();
     var activity = $.issuesWindow.activity;
     activity.onCreateOptionsMenu = function(e) {

@@ -1,12 +1,19 @@
 <Alloy>
-		<Window title="Login"  id="loginWindow">
-			<ScrollView layout="vertical">
-				<Label id="heading">Please enter your login details</Label>
-				<Label class="label">Username :</Label>
-				<TextField value="apptest" id="username" autocorrect=false autocapitalization=Ti.UI.TEXT_AUTOCAPITALIZATION_NONE hintText="User Id"></TextField>
-				<Label class="label">Password :</Label>
-				<TextField value="apptest" id="password" hintText="Password" passwordMask='true'></TextField>
-				<Widget  class="button" src="nl.fokkezb.button" onClick="doLogin" title="Login" style="bs-default" />`			
-			</ScrollView>
-		</Window>
+	<Window title="Login"  id="loginWindow" navBarHidden=true>
+		<ImageView  top=10 image="/images/logo.png" height="100" ></ImageView>
+		<ScrollView top=100 layout="vertical">	
+			<Label id="heading">Enter Your 'Death by a Thousand Cuts' Login Information.If you're not currently a member, please contact your admin</Label>
+			<View id="formContainer">
+				<View class="formField">
+					<Label class="label">Username</Label>
+					<TextField value="apptest" id="username" autocorrect=false autocapitalization=Ti.UI.TEXT_AUTOCAPITALIZATION_NONE hintText="User Id"></TextField>
+				</View>
+				<View class="formField">
+					<Label class="label">Password</Label>
+					<TextField value="apptest" id="password" hintText="Password" passwordMask='true'></TextField>
+				</View>
+			</View>
+			<Widget  class="button" src="nl.fokkezb.button" onClick="doLogin" title="Login" style="bs-primary" />
+		</ScrollView>
+	</Window>
 </Alloy>

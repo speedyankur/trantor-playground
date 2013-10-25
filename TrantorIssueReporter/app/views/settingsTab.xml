@@ -2,14 +2,10 @@
 	<Tab title=" Settings" icon="/images/list_issuesetting.png" >
 		<Window title="Settings" id="settingsWindow">
 			<ScrollView layout="vertical">
-
 				<Label class="label">Sort Issues by:</Label>
-				<Label class="labelLikeTextField" id="sortField"  onClick="showFiterPicker"></Label>
-				
-				<Button top="15"  onClick="saveSettings" backgroundColor="#30D1F4" backgroundSelectedColor="#808080" title="Save" ></Button>
-
+				<Label class="labelLikeTextField" id="sortField"  onClick="showFiterPicker"></Label>				
+				<Widget  class="button" src="nl.fokkezb.button" id="next" onClick="saveSettings" title="Save" style="bs-primary" />
 			</ScrollView>
-
 		</Window>
 	</Tab>
 </Alloy>
